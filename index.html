@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Mail Detector</title>
+</head>
+<body>
+    <h2>Spam Mail Detection</h2>
+    <input type="text" id="emailInput" placeholder="Enter email text">
+    <button id="checkButton">Check</button>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("checkButton").addEventListener("click", function() {
+            let emailText = document.getElementById("emailInput").value.trim();
+
+            if (!emailText) {
+                document.getElementById("result").innerText = "⚠️ Please enter some text.";
+                return;
+            }
+
+            fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: emailText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerText = data.spam ? "🚨 Spam Detected!" : "✅ Not Spam";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("result").innerText = "❌ Error: Could not connect to Flask!";
+            });
+        });
+    </script>
+</body>
+</html>
