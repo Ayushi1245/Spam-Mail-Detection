@@ -10,19 +10,6 @@ A simple Spam Mail Detection web app using Flask (backend) and HTML, CSS, JavaSc
 	•	🌐 Simple Frontend: Built with HTML, CSS, and JavaScript
 	•	⚡ Fast & Lightweight API: Powered by Flask
 
-📂 Project Structure
-
-📦 spam-mail-detection
-├── 📂 static
-│   ├── styles.css        # Frontend styles
-│   ├── script.js         # Frontend logic (Fetch API)
-├── 📂 templates
-│   ├── index.html        # Frontend UI
-├── model.pkl             # Trained Machine Learning Model
-├── app.py                # Flask Backend API
-├── spam.csv              # Dataset (Spam/Ham emails)
-├── requirements.txt      # Dependencies
-└── README.md             # Project Documentation
 
 ⚙️ Installation & Setup
 
